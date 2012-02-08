@@ -28,11 +28,21 @@
     hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
     .footer { text-align:center; padding-top:30px; font-style: italic; }
   </style>
+  
+  <script src="DetectPanda3D.js" language="javascript"></script>
 </head>
 
 <body>
   <a href="https://github.com/newgrounds/Zombie-Dice"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
+  <script language="javascript">
+		if (detectPanda3D()) {
+		document.getElementById('game').innerHTML = "<object width='640' height='480'
+				type='application/x-panda3d' data='ZombieDice.p3d'>
+			</object>";
+		}
+	</script>
+  
   <div id="container">
 
     <div class="download">
@@ -46,14 +56,18 @@
       </h1>
 
     <div class="description">
-      A fun implementation of Zombie Dice in Python
+	  A fun implementation of Zombie Dice in Python
     </div>
-
-    
-	<object width="640" height="480"
-		type="application/x-panda3d" data="ZombieDice.p3d">
-	</object>
-
+	
+	<div id="game">
+		Please install the <a href='http://www.panda3d.org/download.php?runtime' target='_blank'>Panda3D Runtime</a> to play the game from this page.
+		
+		<script language="javascript">
+		if(detectPanda3D()){
+			document.getElementById('game').innerHTML = "<object width='640' height='480' type='application/x-panda3d' data='ZombieDice.p3d'></object>";
+		}
+	  </script>
+	</div>
     
       <h2>Author</h2>
       <p>Adam Gressen (adam@adamgressen.com)
